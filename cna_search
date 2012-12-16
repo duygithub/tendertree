@@ -1,0 +1,9 @@
+def isActive(inputPath, fName, lName, license)
+  contactString = fName + "," + lName + "," + license
+  File.open( inputPath ) do |io|
+  io.each {
+    |line| line.chomp! ; return true if line.upcase.eql?(contactString.upcase)
+  }
+  end
+  false
+end
